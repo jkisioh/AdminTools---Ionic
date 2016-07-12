@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { DataService } from 'shared';
+import { DataService } from 'data.serivce';
 
 /*Use data serrivce to pull connection list*/
 
