@@ -6,8 +6,6 @@ import { LocationService } from './providers/location/location.service';
 
 import { Home } from './pages/home/home';
 import { County } from './pages/county/county';
-import { Page1 } from './pages/page1/page1';
-import { Page2 } from './pages/page2/page2';
 
 @Component({
   templateUrl: 'build/app.html',
@@ -26,9 +24,7 @@ class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: Home },
-      { title: 'Locations', component: County },
-      { title: 'Users', component: Page1 },
-      { title: 'Reimbursements', component: Page2 }
+      { title: 'Locations', component: County }
     ];
 
   }

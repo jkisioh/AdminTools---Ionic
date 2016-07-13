@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { NgFor } from '@angular/common'
 import { LocationService } from '../../providers/location/location.service';
 import { DataPipe } from '../../pipes/data.pipe'
+import { Subcounty } from '../subcounty/subcounty';
 
 @Component({
   templateUrl: 'build/pages/county/county.html',
@@ -11,13 +12,17 @@ import { DataPipe } from '../../pipes/data.pipe'
 })
 export class County {
 
-  public locationList = {};
+  public locationList = [];
+  public keyArray;
+  selectedItem: any;
 
   ////////////
-  constructor(private locationService: LocationService, private nav: NavController) {
+  constructor(private locationService: LocationService, private nav: NavController, navParams: NavParams) {
   	this.locationService = locationService;
 
     this.init();
+
+    this.selectedItem = navParams.get('item');
   }
 
   //initialize data
@@ -25,13 +30,30 @@ export class County {
 
     this.locationList = this.locationService.getLocations()
       .then((result) => {
+        
         this.locationList = result.locations;
-        console.log('View Loaded',this.locationList);
+        //set array keys
+        this.keyArray = Object.keys(this.locationList);
+        
+        console.log('County View Loaded');
 
       }).catch((error) => {
         console.log(error);
     });
   }
+
+  itemTapped(event, item) {
+    // That's right, we're pushing to ourselves!
+    this.nav.push(Subcounty, {
+      item: item
+    });
+  }
+  //todo
+  /*
+    1. Modal load for edit/add
+    2. Search
+    3. 
+  */
   /*onPageWillEnter(){
   	//load data from service before
   	

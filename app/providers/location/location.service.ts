@@ -11,7 +11,7 @@ import { Data } from '../../providers/data/data';
 export class LocationService {
   
   private locationList;
-
+  /////////////////////////////
   constructor(private dataService: Data){
     this.dataService = dataService;
 
@@ -36,5 +36,21 @@ export class LocationService {
   getLocations(){
   	//load location list 
     return this.dataService.getDocument('location-list');   
+  }
+
+  getLocation(key){
+
+  }
+
+  setLocation(doc){
+    return this.dataService.addDocument(doc);
+  }
+
+  moveLocation(from, to){
+
+  }
+
+  deleteLocation(doc){
+
   }
 }

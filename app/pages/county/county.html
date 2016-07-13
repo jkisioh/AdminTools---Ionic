@@ -3,14 +3,22 @@
     <button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>County</ion-title>
+    <ion-title>County </ion-title>
+    <ion-buttons start>
+      <button royal>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-  	<ion-item *ngFor='let c of locationList | values'>
-     {{ c.key }}
+  <ion-searchbar></ion-searchbar>
+  <ion-list inset>
+  	<ion-item *ngFor=' let key of keyArray ' (click)="itemTapped($event, key)">
+      {{locationList[key].label}}
+
+      <button clear item-right><ion-icon name="menu"></ion-icon></button>
     </ion-item>
   </ion-list>
 </ion-content>

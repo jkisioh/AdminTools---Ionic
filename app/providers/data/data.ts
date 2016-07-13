@@ -11,7 +11,9 @@ PouchDB.plugin(require('pouchdb-authentication'));
 */
 @Injectable()
 export class Data {
+  
   private _db;
+  
   /*Required Improvement- Store data on local pouchdb and sync to remote when there is connection*/
   initDB(){
     this._db = new PouchDB('http://localhost:5984/group-national_tablet_program');
