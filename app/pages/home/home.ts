@@ -6,6 +6,10 @@ import { NavController } from 'ionic-angular';
 })
 export class Home {
 
+	public locationList;
+
   constructor(private navController: NavController) {
+
   }
+
 }

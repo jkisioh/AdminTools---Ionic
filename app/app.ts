@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { App, ionicBootstrap, Platform, Nav } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
+import { Data } from './providers/data/data';
+import { LocationService } from './providers/location/location.service';
 
 import { Home } from './pages/home/home';
 import { County } from './pages/county/county';
@@ -8,7 +10,8 @@ import { Page1 } from './pages/page1/page1';
 import { Page2 } from './pages/page2/page2';
 
 @Component({
-  templateUrl: 'build/app.html'
+  templateUrl: 'build/app.html',
+  providers: [Data,LocationService]
 })
 class MyApp {
   @ViewChild(Nav) nav: Nav;
@@ -17,7 +20,7 @@ class MyApp {
 
   pages: Array<{title: string, component: any}>
 
-  constructor(private platform: Platform) {
+  constructor(private dataService: Data, private platform: Platform) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -34,6 +37,9 @@ class MyApp {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
+      //connect to db
+      this.dataService.initDB();
+      //load status bar
       StatusBar.styleDefault();
     });
   }
