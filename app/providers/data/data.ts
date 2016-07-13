@@ -12,7 +12,7 @@ PouchDB.plugin(require('pouchdb-authentication'));
 @Injectable()
 export class Data {
   private _db;
-   
+  /*Required Improvement- Store data on local pouchdb and sync to remote when there is connection*/
   initDB(){
     this._db = new PouchDB('http://localhost:5984/group-national_tablet_program');
     this._db.login('admin','admin')
@@ -28,7 +28,7 @@ export class Data {
   }
 
   getDocument(doc){
-    this._db.get(doc)
+    /*this._db.get(doc)
       .then((result) => {
         //return result
         console.log('Document: ', result);
@@ -37,8 +37,10 @@ export class Data {
       }).catch((error) => {
         //log error
         console.log('Document Error: ', error);
+        return {};
+      });*/
 
-      });
+      return this._db.get(doc);
   }
 
   addDocument(doc){

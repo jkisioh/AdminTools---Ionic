@@ -10,15 +10,31 @@ import { Data } from '../../providers/data/data';
 @Injectable()
 export class LocationService {
   
-  public locationList;
+  private locationList;
 
   constructor(private dataService: Data){
-  	this.dataService = dataService;
+    this.dataService = dataService;
+
+    //this.init();
   }
 
-  getLocations(){
-  	this.locationList =this.dataService.getDocument('location-list');
+  /*init(){
+    this.locationList = this.dataService.getDocument('location-list')
+      .then((result) => {
+        //return
+        this.locationList = result;
+        console.log('Getting locations..', this.locationList);
+        return result;
+      
+      }).catch((error) => {
+        //logger
+        console.log(error);
+        return {};
+    }); 
+  }*/
 
-  	return this.locationList;
+  getLocations(){
+  	//load location list 
+    return this.dataService.getDocument('location-list');   
   }
 }
