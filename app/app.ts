@@ -24,7 +24,13 @@ class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: Home },
-      { title: 'Locations', component: County }
+      { title: 'Locations', component: County },
+      { title: 'Users', component: County },
+      { title: 'Other', component: County },
+      { title: 'Report', component: County },
+      { title: 'Report 2', component: County },
+      { title: 'Settings', component: County },
+      { title: 'About', component: County }
     ];
 
   }
