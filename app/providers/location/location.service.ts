@@ -7,10 +7,13 @@ import { Data } from '../../providers/data/data';
   See https://angular.io/docs/ts/latest/guide/dependency-injection.html
   for more info on providers and Angular 2 DI.
 */
+let _ = require('lodash');
+
 @Injectable()
 export class LocationService {
   
   private locationList;
+  private path;
   /////////////////////////////
   constructor(private dataService: Data){
     this.dataService = dataService;
@@ -38,8 +41,14 @@ export class LocationService {
     return this.dataService.getDocument('location-list');   
   }
 
-  getLocation(key){
+  getLocation(doc, path){
+    //get document from path
+    return _.get(doc, path);
+  }
 
+  getCounty(doc,key){
+    this.path = 'locations.'+key;
+    return _.get(doc,this.path);
   }
 
   setLocation(doc){

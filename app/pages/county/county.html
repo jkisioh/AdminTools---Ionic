@@ -6,19 +6,24 @@
     <ion-title>County </ion-title>
     <ion-buttons start>
       <button royal>
-        <ion-icon name="add"></ion-icon>
+        <ion-icon name="search"></ion-icon>
       </button>
+      <button royal>
+        <ion-icon name="more"></ion-icon>
+      </button>
+
+      <button (click)="addNote()"><ion-icon name="add"></ion-icon></button>
     </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-searchbar></ion-searchbar>
+  <!--<ion-searchbar></ion-searchbar>-->
   <ion-list inset>
-  	<ion-item *ngFor=' let key of keyArray ' (click)="itemTapped($event, key)">
+  	<ion-item *ngFor=' let key of keyArray '>
       {{locationList[key].label}}
-
-      <button clear item-right><ion-icon name="menu"></ion-icon></button>
+      <!--<button clear item-right><ion-icon name="create"></ion-icon></button>-->
+      <button (click)="itemTapped($event, key)" clear item-right><ion-icon name="menu"></ion-icon></button>
     </ion-item>
   </ion-list>
 </ion-content>

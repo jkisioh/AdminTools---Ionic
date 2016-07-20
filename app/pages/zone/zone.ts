@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController , NavParams} from 'ionic-angular';
 
 /*
   Generated class for the ZonePage page.
@@ -11,9 +11,12 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'build/pages/zone/zone.html',
 })
 export class Zone {
+  private subcountyId;
 
-  constructor(private nav: NavController) {
-
+  //////////////////////
+  constructor(private nav: NavController, private navParams: NavParams) {
+  	this.subcountyId = navParams.get('item');
+  	
   }
 
 }

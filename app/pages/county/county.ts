@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, Alert } from 'ionic-angular';
 import { NgFor } from '@angular/common'
 import { LocationService } from '../../providers/location/location.service';
 import { DataPipe } from '../../pipes/data.pipe'
@@ -48,6 +48,32 @@ export class County {
       item: item
     });
   }
+
+  addNote(){
+ 
+        let prompt = Alert.create({
+            title: 'Add County',
+            inputs: [{
+                name: 'title',
+                placeholder: 'County'
+            },
+            {
+                name: 'quota',
+                placeholder: 'Quota'
+            }
+            ],
+            buttons: [
+                {
+                    text: 'Cancel'
+                },
+                {
+                    text: 'Add'
+                }
+            ]
+        });
+ 
+        this.nav.present(prompt);
+    }
   //todo
   /*
     1. Modal load for edit/add

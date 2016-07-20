@@ -7,10 +7,10 @@
 <ion-header>
 
   <ion-navbar primary>
-    <ion-title>CountyName - Subcounties</ion-title>
+    <ion-title>{{locationList.label}} - Subcounties</ion-title>
     <ion-buttons start>
       <button royal>
-        <ion-icon name="add"></ion-icon>
+        <ion-icon name="search"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -18,10 +18,12 @@
 </ion-header>
 
 <ion-content padding>
-<ion-searchbar></ion-searchbar>
+<!--<ion-searchbar></ion-searchbar>-->
 <ion-list inset>
-  <ion-item>
-  	<button clear item-right><ion-icon name="menu"></ion-icon></button>
-  </ion-item>
-</ion-list>
+    <ion-item *ngFor=' let key of keyArray ' >
+      {{locationList['children'][key].label}}
+      <!--<button clear item-right><ion-icon name="create"></ion-icon></button>-->
+      <button (click)="itemTapped($event, key)" clear item-right><ion-icon name="menu"></ion-icon></button>
+    </ion-item>
+  </ion-list>
 </ion-content>
