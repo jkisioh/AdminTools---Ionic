@@ -3,6 +3,7 @@ import {Storage, SqlStorage} from 'ionic-angular';
  
 let PouchDB = require('pouchdb');
 PouchDB.plugin(require('pouchdb-authentication'));
+PouchDB.plugin(require('pouchdb-find'));
 /*
   Generated class for the Data provider.
 
@@ -19,7 +20,7 @@ export class Data {
   initDB(){
     this.db = new PouchDB('group-national_tablet_program');
  
-    this.remote = new PouchDB('http://localhost:5984/group-national_tablet_program');
+    this.remote = new PouchDB('http://localhost:5984/group-national_tablet_program_test');
  
     let options = {
       live: true,
@@ -61,5 +62,11 @@ export class Data {
 
   addDocument(doc){
     this.db.put(doc);
+  }
+
+  search(col, name, user){
+    return this.db.find({
+      selector: { collection: col, assessmentName: name, enumerator: user }
+    });
   }
 }

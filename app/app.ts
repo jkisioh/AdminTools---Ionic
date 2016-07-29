@@ -3,13 +3,15 @@ import { App, ionicBootstrap, Platform, Nav } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
 import { Data } from './providers/data/data';
 import { LocationService } from './providers/location/location.service';
+import { FeedbackService } from './providers/feedback/feedback.service';
 
 import { Home } from './pages/home/home';
 import { County } from './pages/county/county';
+import { Feedback } from './pages/feedback/feedback';
 
 @Component({
   templateUrl: 'build/app.html',
-  providers: [Data,LocationService]
+  providers: [Data,LocationService, FeedbackService]
 })
 class MyApp {
   @ViewChild(Nav) nav: Nav;
@@ -26,7 +28,7 @@ class MyApp {
       { title: 'Home', component: Home },
       { title: 'Locations', component: County },
       { title: 'Users', component: County },
-      { title: 'Other', component: County },
+      { title: 'Feedback', component: Feedback },
       { title: 'Report', component: County },
       { title: 'Report 2', component: County },
       { title: 'Settings', component: County },
