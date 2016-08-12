@@ -3,15 +3,20 @@ import { App, ionicBootstrap, Platform, Nav } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
 import { Data } from './providers/data/data';
 import { LocationService } from './providers/location/location.service';
-import { FeedbackService } from './providers/feedback/feedback.service';
+import { AssessmentsService } from './providers/assessments/assessments.service';
 
 import { Home } from './pages/home/home';
 import { County } from './pages/county/county';
 import { Feedback } from './pages/feedback/feedback';
+import { Login } from './pages/login/login';
+import { Assessments } from './pages/assessments/assessments';
+import { About } from './pages/about/about';
+import { Settings } from './pages/settings/settings';
+import { Users } from './pages/users/users';
 
 @Component({
   templateUrl: 'build/app.html',
-  providers: [Data,LocationService, FeedbackService]
+  providers: [Data,LocationService, AssessmentsService]
 })
 class MyApp {
   @ViewChild(Nav) nav: Nav;
@@ -25,14 +30,13 @@ class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
+      /*{ title: 'Login', component: Login },*/
       { title: 'Home', component: Home },
       { title: 'Locations', component: County },
-      { title: 'Users', component: County },
-      { title: 'Feedback', component: Feedback },
-      { title: 'Report', component: County },
-      { title: 'Report 2', component: County },
-      { title: 'Settings', component: County },
-      { title: 'About', component: County }
+      { title: 'Users', component: Users },
+      { title: 'Assessments', component: Assessments },
+      { title: 'Settings', component: Settings },
+      { title: 'About', component: About }
     ];
 
   }

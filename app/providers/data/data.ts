@@ -27,7 +27,8 @@ export class Data {
       retry: true,
       continuous: true
     };
- 
+   
+    //this.login(this.db, this.remote, 'admin', 'admin');
     //this._db = new PouchDB();
     this.remote.login('admin','admin')
       .then((result) => {
@@ -42,6 +43,28 @@ export class Data {
 
       //sync
       this.db.sync(this.remote, options);
+  }
+
+  //login to db
+  login(local, remote, options, user, password){
+    
+    remote.login(user, password)
+      .then((result) => {
+
+        console.log('DB Connected!');
+
+      }).catch((error) =>{ 
+
+        console.log(error);
+
+      });
+      //sync
+      local.sync(remote, options);
+  }
+
+  //logout from db
+  logout(){
+
   }
 
   getDocument(doc){

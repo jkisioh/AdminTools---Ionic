@@ -9,7 +9,7 @@ import { Data } from '../../providers/data/data';
   for more info on providers and Angular 2 DI.
 */
 @Injectable()
-export class FeedbackService {
+export class AssessmentsService {
   selectors: any;
 
   constructor(private http: Http, private dataService: Data) {

@@ -2,15 +2,16 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { AssessmentsService } from '../../providers/assessments/assessments.service';
 /*
-  Generated class for the FeedbackPage page.
+  Generated class for the AssessmentsPage page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
 @Component({
-  templateUrl: 'build/pages/feedback/feedback.html',
+  templateUrl: 'build/pages/assessments/assessments.html',
 })
-export class Feedback {
+export class Assessments {
+
   public results;
   public keyArray;
 
@@ -35,4 +36,5 @@ export class Feedback {
         console.log(error);
     });
   }
+
 }
